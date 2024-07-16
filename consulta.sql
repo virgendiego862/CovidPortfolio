@@ -77,6 +77,16 @@ where continent is not null
 group by location,population
 order by HighestInfectionCount DESC;
 
+
+Select 
+    location,
+    SUM(new_deaths ) as DeathCount
+FROM `academic-aloe-381420.portafolio.CovidDealth`
+where continent is  null and location not in
+ ('World','European Union','International','Lower middle income','Low income','High income','Upper middle income')
+group by location
+order by DeathCount DESC;
+
 --Countries whit highest death count per population
 
 Select 
